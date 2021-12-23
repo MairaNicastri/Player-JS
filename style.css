@@ -1,0 +1,64 @@
+* {
+    font-family: ;
+}
+
+:root {
+    --main-color : #999BFF;
+    --second-color : #9A90E8;
+    --thitrd-color : #C98CFF;
+    --main-gradiant : linear-gradient (45deg, #999BFF , #9A90E8 , #C98CFF)
+}
+
+body{
+    background: url(https://i1.wp.com/www.giacomocusano.com/wp-content/uploads/2016/07/coastal-wash-web.jpg?fit=1024%2C682&ssl=1);
+    background-size : cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* main-card */
+.bgdesign {
+    background-color: rgba(245, 245, 245, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    height: 50vh;
+}
+
+/* bottoni */
+
+.bottonemenu {
+    height: 50px;
+    width: 50px;
+    border-radius: 100% !important;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    --webkit-tap-highlight-color: rgba(0,0,0,0);
+    --webkit-tap-highlight-color: transparent;
+    box-shadow: 
+    -7px -7px 20px 0px gray,
+    -4px -4px 5px 0px gray,
+    7px 7px 20px 0px rgb(0, 0, 0),
+    4px 4px 5px 0px rgb(0, 0, 0);
+    transition: box-shadow 0.6 cubic-bezier(.79,.21,.06,.81);
+    font-size: 26px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.bottonemenu:hover{
+    background: radial-gradient(circle, green 0%, white 60%);
+    color: rgba(0, 0, 0, 0.459);
+    animation: colorchange 3s linear infinite;
+}
+.bottonemenu:active{
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+@keyframes colorchange {
+	to {filter: hue-rotate(360deg);}
+}
