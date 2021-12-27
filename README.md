@@ -1,12 +1,13 @@
 LISTA
 - impostare bg
 - costruire box centrale
-- costruire due col
--sinistra-
-elenco bottoni (lista, play, )
--destra-
-risposta ai bottoni sinistra ()
-
+- lista canzoni
+- play, pausa, next prev
+- tempo che scorre
+- animazione disco
+- funzione volume
+- mettere in coda una canzone
+- riproduzione casuale
 
 soundcloud
 
