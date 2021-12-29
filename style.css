@@ -154,6 +154,42 @@ border-bottom: solid 2px rgba(165, 67, 42, 0.849);
     background: rgba(195, 103, 41, 0.835);
   }
 
+/* RISPOSTA A CANZONE IN CORSO */
+
+.cover {
+    border-radius: 100%;
+    width: 250px;
+    margin-left: 30px;
+    margin-right: 30px;
+    opacity: 0.5;
+}
+
+.coverplay {
+    animation: burn 0.8s infinite;
+}
+
+.bottonemusica {
+    color: rgba(255, 196, 0, 0.397);
+    background: radial-gradient(circle,  rgba(255, 102, 0, 0.383) 0%, #57000017 70%);
+    border-radius: 100%;
+}
+
+.bottonemusica:hover {
+    color: rgb(255, 213, 73);
+    background: radial-gradient(circle,  rgba(255, 166, 0, 0.383) 0%, #57000017 70%);
+    border-radius: 100%;
+}
+
+.progdesign {
+height:5px;
+background: rgba(88, 21, 21, 0.267);
+
+}
+.progdesign .progress-bar {
+    background: linear-gradient(45deg , #c22d00, #c36729d5);
+}
+
+
 /* -----ANIMAZIONI------ */
 
 /* animazione bagliore interno tasto      */
