@@ -3,30 +3,30 @@ let tracks = [
         cover : './cover/All Hope Is Gone.JPG' ,
         artist : 'Slipknot' ,
         title : 'Sulfur'},
-    {   url : './musica/Disturbed - Inside the Fire.mp3' ,
+    {   url : './musica/Disturbed -  Inside the Fire.mp3' ,
         cover : './cover/disturbed fire.JPG' ,
         artist : 'Disturbed' ,
         title : 'Inside the Fire'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
-        cover : './cover/All Hope Is Gone.JPG' ,
-        artist : 'tre' ,
-        title : 'Sulfur'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
-        cover : './cover/All Hope Is Gone.JPG' ,
-        artist : 'quattro' ,
-        title : 'Sulfur'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
-        cover : './cover/All Hope Is Gone.JPG' ,
-        artist : '55555' ,
-        title : 'Sulfur'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
+    {   url : './musica/Slipknot - Psychosocial.mp3' ,
         cover : './cover/All Hope Is Gone.JPG' ,
         artist : 'Slipknot' ,
-        title : 'Sulfur'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
-        cover : './cover/All Hope Is Gone.JPG' ,
-        artist : 'Slipknot' ,
-        title : 'Sulfur'},
+        title : 'Psychosocial'},
+    {   url : './musica/Linkin Park - Place for My Head.mp3' ,
+        cover : './cover/hybrid theory.JPG' ,
+        artist : 'Linkin Park' ,
+        title : 'Place for My Head'},
+    {   url : './musica/Disturbed - The Night.mp3' ,
+        cover : './cover/disturbed fire.JPG' ,
+        artist : 'Disturbed' ,
+        title : 'The Night'},
+    {   url : './musica/Marilyn Manson - Sweet Dreams.mp3' ,
+        cover : './cover/sweet.JPG' ,
+        artist : 'Marilyn Manson' ,
+        title : 'Sweet Dreams'},
+    {   url : './musica/Metallica - Enter Sandman.mp3' ,
+        cover : './cover/metallica.JPG' ,
+        artist : 'Metallica' ,
+        title : 'Enter Sandman'},
     {   url : './musica/Slipknot - Sulfur.mp3' ,
         cover : './cover/All Hope Is Gone.JPG' ,
         artist : 'Slipknot' ,
@@ -62,6 +62,9 @@ const trackartist = document.querySelector('#trackartist');
 // TASTI AVANTI E DIETRO
 const nextTrack = document.querySelector('#nextTrack');
 const prevTrack = document.querySelector('#prevTrack');
+
+const songloved =document.querySelector('#songloved');
+const loved = document.querySelector('#loved')
 // ----------------------------------FUNZIONI----------------------------------
 
 
@@ -104,6 +107,40 @@ function nexttrack (){
     }
 ChangeTrackDetails()
 }
+function prevtrack (){
+    currentTrack--
+    if(currentTrack < 0){
+    currentTrack= tracks.length - 1
+    }
+ChangeTrackDetails()
+}
+
+function addsong() {
+    FavouriteSong = [];
+    FavouriteSong.push(tracks[currentTrack]);
+    return FavouriteSong
+}
+console.log(addsong())
+
+function favouritesong(){
+    FavouriteSong.forEach(track => {
+        let listalove = document.createElement('div');
+
+        listalove.classList.add('col-12');
+
+        listalove.innerHTML =
+        `
+        <div class="listadesign d-flex justify-content-between align-items-center">
+            <h3 class="titolocolor">${track.artist} - ${track.title} </h3>
+            <button class="btn bottonemenu">
+            <i class="fas fa-heart-broken"></i>
+        </button>
+        </div>
+        `
+        songloved.appendChild(listalove)
+    })
+};
+console.log(favouritesong())
 // -------------------------EVENTI-----------------------
 
 
@@ -124,7 +161,20 @@ Pause.addEventListener('click', ()=>{
 // TATI INDIETRO E AVANTI
 nextTrack.addEventListener('click', () =>{
     nexttrack()
+    Play.classList.add('d-none')
+    Pause.classList.remove('d-none')
+    Cover.classList.add('coverplay')
+    Track.play()
 });
 prevTrack.addEventListener('click', () =>{
     prevtrack()
+    Play.classList.add('d-none')
+    Pause.classList.remove('d-none')
+    Cover.classList.add('coverplay')
+    Track.play()
 });
+
+loved.addEventListener('click' , () =>{
+    addsong()
+    favouritesong()
+})

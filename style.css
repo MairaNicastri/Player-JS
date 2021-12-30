@@ -41,6 +41,8 @@
 
 /* bottoni */
 .nav-pills .bottonemenu.nav-link.active, .nav-pills .show>.bottonemenu.nav-link , .bottonemenu.nav-link , .bottonemenu  {
+
+
         height: 50px;
         width: 50px;
         border-radius: 50%;
@@ -64,11 +66,14 @@
 }
 
 .bottonemenu:hover{
+
+
       background: radial-gradient(circle,  rgba(255, 123, 0, 0.568) 0%, #570000a9 70%);
         color: rgba(253, 198, 69, 0.726); 
         /* animation: colorchange 3s linear infinite; */
 }
 .bottonemenu:active{
+
         box-shadow:  4px 4px 6px 0 rgba(226, 98, 23, 0.2),
                     -4px -4px 6px 0 rgba(0, 0, 0, 0.3), 
                     inset -4px -4px 6px 0 rgba(226, 98, 23, 0.2),
@@ -78,6 +83,7 @@
 
       
 .bottonemenu.active {
+
     animation: colorchange 5s infinite;
 }
 
@@ -129,6 +135,32 @@ border-bottom: solid 2px rgba(165, 67, 42, 0.849);
     animation: burn 2s infinite;
 }
 
+.bottonemusica {
+    color: rgba(255, 196, 0, 0.397);
+    background: radial-gradient(circle,  rgba(255, 102, 0, 0.383) 0%, #57000017 70%);
+    border-radius: 100%;
+}
+
+.bottonemusica:hover {
+    color: rgb(255, 213, 73);
+    background: radial-gradient(circle,  rgba(255, 166, 0, 0.383) 0%, #57000017 70%);
+    border-radius: 100%;
+}
+.btnlove{
+
+    color: rgba(255, 196, 0, 0.397);
+    background: radial-gradient(circle,  rgba(255, 102, 0, 0.383) 0%, #57000017 70%);
+    border-radius: 100%;
+}
+.btnlove:hover{
+    color: rgb(255, 213, 73);
+    background: radial-gradient(circle,  rgba(255, 166, 0, 0.383) 0%, #57000017 70%);
+    border-radius: 100%;
+}
+.btnlove:active{
+    animation: burn 2s infinite;
+}
+
 .scroll-y{
     overflow-y: scroll;
 }
@@ -168,17 +200,7 @@ border-bottom: solid 2px rgba(165, 67, 42, 0.849);
     animation: burn 0.8s infinite;
 }
 
-.bottonemusica {
-    color: rgba(255, 196, 0, 0.397);
-    background: radial-gradient(circle,  rgba(255, 102, 0, 0.383) 0%, #57000017 70%);
-    border-radius: 100%;
-}
 
-.bottonemusica:hover {
-    color: rgb(255, 213, 73);
-    background: radial-gradient(circle,  rgba(255, 166, 0, 0.383) 0%, #57000017 70%);
-    border-radius: 100%;
-}
 
 .progdesign {
 height:5px;

@@ -40,7 +40,7 @@
 
                                 <button class="bottonemenu nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fas fa-heart"></i></button>
 
-                                <button class="bottonemenu nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="fas fa-heart"></i></button>
+                                <button class="bottonemenu nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="fas fa-heart"></i></button>
 
                             </div>
 
@@ -53,6 +53,15 @@
                                      
                                   </div>
                                   <div class="col-12 col-md-8">
+
+                                    <div class="d-flex justify-content-end">
+
+                                        <button id="loved" class="btn btnlove">
+                                            <i class="fa-3x fas fa-heart"></i>
+                                        </button>
+
+                                      </div>
+
                                       <div class="d-flex align-items-center">
                                         <button id="Play" class="btn bottonemusica">
                                             <i  class="fa-3x fas fa-play"></i>
@@ -63,8 +72,9 @@
                                         <div>
                                             <h1 id='tracktitle' class="titolocolor px-5">Titolo</h1>
                                             <h1 id='trackartist' class="titolocolor px-4">Autore</h1>
-                                        </div>
+                                        </div>                                       
                                       </div>
+
                                       <div class="d-flex mt-5 align-items-center">
                                         <button id="prevTrack" class="btn bottonemusica">
                                             <i class="fas fa-angle-double-left"></i>
@@ -82,6 +92,7 @@
                                         <p>00:00</p>
                                         <p>05:00</p>
                                       </div>
+                                      
                                       
                                   </div>
                                   
@@ -105,7 +116,11 @@
                                   </div>
                                   
                             </div>
-                              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <div id="songloved" class="row scroll-y h-100">
+
+                                </div>
+                              </div>
                               <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
                             </div>
 
