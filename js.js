@@ -27,22 +27,22 @@ let tracks = [
         cover : './cover/metallica.JPG' ,
         artist : 'Metallica' ,
         title : 'Enter Sandman'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
+    {   url : './musica/Metallica - One.mp3' ,
+        cover : './cover/metallica justice.JPG' ,
+        artist : 'Metallica' ,
+        title : 'One'},
+    {   url : './musica/Slipknot - Vermillion.mp3' ,
         cover : './cover/All Hope Is Gone.JPG' ,
         artist : 'Slipknot' ,
-        title : 'Sulfur'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
+        title : 'Vermillion'},
+    {   url : './musica/Metallica - Nothing else matter.mp3' ,
+        cover : './cover/metallica.JPG' ,
+        artist : 'Metallica' ,
+        title : 'Nothing else matter'},
+    {   url : './musica/slipknot snuff.mp3' ,
         cover : './cover/All Hope Is Gone.JPG' ,
         artist : 'Slipknot' ,
-        title : 'Sulfur'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
-        cover : './cover/All Hope Is Gone.JPG' ,
-        artist : 'Slipknot' ,
-        title : 'Sulfur'},
-    {   url : './musica/Slipknot - Sulfur.mp3' ,
-        cover : './cover/All Hope Is Gone.JPG' ,
-        artist : 'Slipknot' ,
-        title : 'Sulfur'},
+        title : 'Snuff'},
 ]
 // -----------------------------COSTANTI--------------------------------------
 
@@ -62,9 +62,17 @@ const trackartist = document.querySelector('#trackartist');
 // TASTI AVANTI E DIETRO
 const nextTrack = document.querySelector('#nextTrack');
 const prevTrack = document.querySelector('#prevTrack');
-
+// TASTO AGGIUNTA PREFERITI E SEZIONE CORRISPONDENTE DOVE STAMPARE ELENCO
 const songloved =document.querySelector('#songloved');
 const loved = document.querySelector('#loved')
+// TASTO ORDINE ESECUZIONE MUSICA CHE TOGGLA
+const normal = document.querySelector('#normal');
+const casual = document.querySelector('#casual');
+// VARIABILI PER TEMPO CORRENTE E TEMPO TOTALE AUDIO
+const currentTime = document.querySelector('#currentTime');
+const totalTime = document.querySelector('#totalTime');
+
+const progressTimeBar = document.querySelector('#progressTimeBar')
 // ----------------------------------FUNZIONI----------------------------------
 
 
@@ -88,6 +96,8 @@ function SongList(){
     })
 };
 console.log(SongList())
+
+
 // FUNZIONE CHE IMPOSTA TUTTI I DETTAGLI IN BASE ALLA TRACCIA
 
 
@@ -98,28 +108,32 @@ function ChangeTrackDetails(){
     trackartist.innerHTML = song.artist
     tracktitle.innerHTML = song.title
 
+
 };
 console.log(ChangeTrackDetails())
+
+// FUNZIONE PER ANDARE AVANTI E INDIETRO CON LA TRACCIA
 function nexttrack (){
     currentTrack++
     if(currentTrack > tracks.length -1){
     currentTrack=0
     }
 ChangeTrackDetails()
-}
+};
 function prevtrack (){
     currentTrack--
     if(currentTrack < 0){
     currentTrack= tracks.length - 1
     }
 ChangeTrackDetails()
-}
+};
 
+// FUNZIONE AGGIUNGERE AI PREFERITI E CREARE NUOVO ARRAY CON PREFERITI
 function addsong() {
     FavouriteSong = [];
     FavouriteSong.push(tracks[currentTrack]);
     return FavouriteSong
-}
+};
 console.log(addsong())
 
 function favouritesong(){
@@ -141,6 +155,26 @@ function favouritesong(){
     })
 };
 console.log(favouritesong())
+
+
+// FUNZIONE CONVERTITORE MINUTI SECONDI
+function formatTime(sec){
+    let minutes= Math.floor(sec / 60);
+    let seconds = Math.floor(sec - minutes * 60);
+
+    if(seconds<10){
+        return `${minutes}:0${seconds}`
+    }
+    return `${minutes}:${seconds}`
+};
+
+// FUNZIONE PROGRESSO DEL TEMPO
+function updateProgress (){
+    let progress = (Track.currentTime / Track.duration) * 100
+    
+    progressTimeBar.style.width = progress+'%'
+    currentTime.innerHTML = formatTime(progress)
+};
 // -------------------------EVENTI-----------------------
 
 
@@ -173,8 +207,35 @@ prevTrack.addEventListener('click', () =>{
     Cover.classList.add('coverplay')
     Track.play()
 });
-
+// TASTO AGGIUNTA PREFERITI E STAMPA LA LISTA
 loved.addEventListener('click' , () =>{
-    addsong()
+    
     favouritesong()
-})
+    addsong()
+});
+// EVENTO PER FAR PARTIRE ALTRA TRACCIA QUANDO L'ATTUALE TERMINA
+track.addEventListener('ended', ()=>{
+    nexttrack()
+    Play.classList.add('d-none')
+    Pause.classList.remove('d-none')
+    Cover.classList.add('coverplay')
+    Track.play()
+});
+// EVENTO TOGGLE ORDINE ESECUZIONE MUSICA
+normal.addEventListener('click', ()=>{
+    normal.classList.toggle('d-none')
+    casual.classList.toggle('d-none')
+});
+casual.addEventListener('click', ()=>{
+    normal.classList.toggle('d-none')
+    casual.classList.toggle('d-none')
+});
+
+Track.addEventListener('timeupdate' , () => {
+    updateProgress()
+});
+
+track.addEventListener('loadeddata', () => {
+    currentTime.innerHTML = formatTime(0)
+    totalTime.innerHTML = formatTime(Track.duration)
+});
