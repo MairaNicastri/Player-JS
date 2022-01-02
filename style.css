@@ -34,7 +34,7 @@
     padding: 50px;
     border-radius: 5px;
     box-shadow:  4px 4px 6px 0 rgba(226, 98, 23, 0.2),
-                -4px -4px 6px 0 rgba(0, 0, 0, 0.2), 
+                -4px -4px 6px 0 rgba(0, 0, 0, 0.2),
                 inset -4px -4px 6px 0 rgba(226, 98, 23, 0.2),
                 inset 4px 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
@@ -53,7 +53,7 @@
         align-items: center;
         -webkit-tap-highlight-color: rgba(0,0,0,0);
         -webkit-tap-highlight-color: transparent;
-        
+
         box-shadow:
          -7px -7px 20px 0px rgba(226, 98, 23, 0.2),
          -4px -4px 5px 0px rgba(226, 98, 23, 0.2),
@@ -69,19 +69,19 @@
 
 
       background: radial-gradient(circle,  rgba(255, 123, 0, 0.568) 0%, #570000a9 70%);
-        color: rgba(253, 198, 69, 0.726); 
+        color: rgba(253, 198, 69, 0.726);
         /* animation: colorchange 3s linear infinite; */
 }
 .bottonemenu:active{
 
         box-shadow:  4px 4px 6px 0 rgba(226, 98, 23, 0.2),
-                    -4px -4px 6px 0 rgba(0, 0, 0, 0.3), 
+                    -4px -4px 6px 0 rgba(0, 0, 0, 0.3),
                     inset -4px -4px 6px 0 rgba(226, 98, 23, 0.2),
                     inset 4px 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
       /* questa classe si attacca all'active che e' una classe che si attiva solo quando il pulsante e' premuto quindi fa vedere il pulsannte attivo ion quel momento */
 
-      
+
 .bottonemenu.active {
 
     animation: colorchange 5s infinite;
@@ -100,14 +100,14 @@ border-bottom: solid 2px rgba(165, 67, 42, 0.849);
     width: 50px;
     border-radius: 50%;
     background: radial-gradient(circle,  rgba(255, 123, 0, 0.568) 0%, #570000a9 70%);
-    color: rgba(253, 198, 69, 0.726); 
+    color: rgba(253, 198, 69, 0.726);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-tap-highlight-color: transparent;
-    
+
     box-shadow:
      -7px -7px 20px 0px rgba(226, 98, 23, 0.2),
      -4px -4px 5px 0px rgba(226, 98, 23, 0.2),
@@ -120,13 +120,13 @@ border-bottom: solid 2px rgba(165, 67, 42, 0.849);
 
 .bottonemenu2:hover{
     background: radial-gradient(circle,  rgba(255, 123, 0, 0.568) 0%, #570000a9 70%);
-      color: rgba(253, 198, 69, 0.726); 
+      color: rgba(253, 198, 69, 0.726);
       /* animation: colorchange 3s linear infinite; */
 }
 
 .bottonemenu2:active{
     box-shadow:  4px 4px 6px 0 rgba(226, 98, 23, 0.2),
-                -4px -4px 6px 0 rgba(0, 0, 0, 0.3), 
+                -4px -4px 6px 0 rgba(0, 0, 0, 0.3),
                 inset -4px -4px 6px 0 rgba(226, 98, 23, 0.2),
                 inset 4px 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
@@ -169,18 +169,18 @@ border-bottom: solid 2px rgba(165, 67, 42, 0.849);
     width: 5px;
 
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
     background: rgba(88, 21, 21, 0.267);
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: rgba(195, 72, 41, 0.549);
     border-radius: 10px;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(195, 103, 41, 0.835);
@@ -200,7 +200,7 @@ border-bottom: solid 2px rgba(165, 67, 42, 0.849);
     animation: burn 0.8s infinite;
 }
 
-
+/* DESIGN DELLA PROGRESSBAR */
 
 .progdesign {
 height:5px;
@@ -209,6 +209,24 @@ background: rgba(88, 21, 21, 0.267);
 }
 .progdesign .progress-bar {
     background: linear-gradient(45deg , #c22d00, #c3b70ed5);
+}
+
+/* DESIGN RICERCA */
+
+.searchdesign {
+    background: transparent;
+    border: none;
+    width: 100%;
+    color: darkorange;
+
+}
+.searchdesign::placeholder{
+    color: rgba(210, 105, 30, 0.342);
+}
+.searchdesign:focus{
+    color: chocolate;
+    background: transparent;
+    border: none;
 }
 
 
@@ -239,7 +257,7 @@ background: rgba(88, 21, 21, 0.267);
         0 0 5px 0 rgba(230, 30, 10, 0.8),
         0 0 5px 0 rgba(230, 230, 10, 0.6);
     }
-    
+
     100% {
       color: rgb(255, 187, 0);
       background: rgba(255, 255, 10, 0);

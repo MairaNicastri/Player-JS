@@ -71,8 +71,11 @@ const casual = document.querySelector('#casual');
 // VARIABILI PER TEMPO CORRENTE E TEMPO TOTALE AUDIO
 const currentTime = document.querySelector('#currentTime');
 const totalTime = document.querySelector('#totalTime');
-
-const progressTimeBar = document.querySelector('#progressTimeBar')
+// COSTANTE PER PROGRESSBAR
+const progressTimeBar = document.querySelector('#progressTimeBar');
+// COSTANTE PER AREA RICERCA
+const SearchArea = document.querySelector('#SearchArea');
+const listarisultati = document.querySelector('#listarisultati')
 // ----------------------------------FUNZIONI----------------------------------
 
 
@@ -130,14 +133,14 @@ ChangeTrackDetails()
 
 // FUNZIONE AGGIUNGERE AI PREFERITI E CREARE NUOVO ARRAY CON PREFERITI
 function addsong() {
-    FavouriteSong = [];
+    let FavouriteSong = [];
     FavouriteSong.push(tracks[currentTrack]);
     return FavouriteSong
 };
 console.log(addsong())
 
 function favouritesong(){
-    FavouriteSong.forEach(track => {
+    addsong().forEach(track => {
         let listalove = document.createElement('div');
 
         listalove.classList.add('col-12');
@@ -175,6 +178,17 @@ function updateProgress (){
     progressTimeBar.style.width = progress+'%'
     currentTime.innerHTML = formatTime(progress)
 };
+
+// FUNZIONE RICERCA per titolo
+function searchsongs (search) {       
+    let filtered = tracks.filter((song)=>{
+        return song.title.toLowerCase().includes(search.toLowerCase()) 
+    })
+    console.log (filtered)
+    return filtered
+    
+};
+
 // -------------------------EVENTI-----------------------
 
 
@@ -214,7 +228,7 @@ loved.addEventListener('click' , () =>{
     addsong()
 });
 // EVENTO PER FAR PARTIRE ALTRA TRACCIA QUANDO L'ATTUALE TERMINA
-track.addEventListener('ended', ()=>{
+Track.addEventListener('ended', ()=>{
     nexttrack()
     Play.classList.add('d-none')
     Pause.classList.remove('d-none')
@@ -235,7 +249,63 @@ Track.addEventListener('timeupdate' , () => {
     updateProgress()
 });
 
-track.addEventListener('loadeddata', () => {
+Track.addEventListener('loadeddata', () => {
     currentTime.innerHTML = formatTime(0)
     totalTime.innerHTML = formatTime(Track.duration)
 });
+
+SearchArea.addEventListener('input' , () =>{
+    if (searchsongs(SearchArea.value) == ''){
+        let lista2 = document.createElement('div');
+
+        lista2.classList.add('col-12');
+
+        lista2.innerHTML = ''
+        listarisultati.appendChild(lista2)
+    } else {
+    searchsongs(SearchArea.value).forEach(track => {
+        let lista2 = document.createElement('div');
+
+        lista2.classList.add('col-12');
+
+        lista2.innerHTML =
+        `
+        <div class="listadesign d-flex justify-content-between align-items-center">
+            <h3 class="titolocolor">${track.artist} - ${track.title} </h3>
+            <button class="btn bottonemenu2">
+            <i class="fas fa-heart"></i>
+        </button>
+        </div>
+        `
+        listarisultati.appendChild(lista2)
+    }) 
+    }   
+    
+});
+
+
+
+
+    // if (SearchArea.value == ''){
+    //     let lista2 = document.createElement('div');
+
+    //     lista2.classList.add('col-12');
+
+    //     lista.innerHTML = ''}
+    //     else {
+    //     let lista2 = document.createElement('div');
+
+    //     lista2.classList.add('col-12');
+
+    //     lista2.innerHTML =  `
+    //     <div class="listadesign d-flex justify-content-between align-items-center">
+    //         <h3 class="titolocolor">${tracks.artist} - ${tracks.SearchSong(SearchArea.value)} </h3>
+    //         <button class="btn bottonemenu2">
+    //         <i class="fas fa-play"></i>
+    //     </button>
+    //     </div>
+    //     `
+    //     }
+       
+    //     listarisultati.appendChild(lista2)   
+
