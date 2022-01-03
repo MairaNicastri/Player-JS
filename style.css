@@ -64,7 +64,13 @@
         color: #666;
         text-decoration: none;
 }
-
+.bottonemenu.btn:focus{
+    box-shadow:
+    -7px -7px 20px 0px rgba(226, 98, 23, 0.2),
+    -4px -4px 5px 0px rgba(226, 98, 23, 0.2),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.3),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.3); 
+}
 .bottonemenu:hover{
 
 
@@ -118,47 +124,61 @@ border-bottom: solid 2px rgba(165, 67, 42, 0.849);
     text-decoration: none;
 }
 
+.bottonemenu2.btn:focus {
+ box-shadow:
+     -7px -7px 20px 0px rgba(226, 98, 23, 0.2),
+     -4px -4px 5px 0px rgba(226, 98, 23, 0.2),
+     7px 7px 20px 0px rgba(0, 0, 0, 0.3),
+     4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
 .bottonemenu2:hover{
     background: radial-gradient(circle,  rgba(255, 123, 0, 0.568) 0%, #570000a9 70%);
       color: rgba(253, 198, 69, 0.726);
       /* animation: colorchange 3s linear infinite; */
 }
 
-.bottonemenu2:active{
+.bottonemenu2.btn:active{
     box-shadow:  4px 4px 6px 0 rgba(226, 98, 23, 0.2),
                 -4px -4px 6px 0 rgba(0, 0, 0, 0.3),
                 inset -4px -4px 6px 0 rgba(226, 98, 23, 0.2),
-                inset 4px 4px 6px 0 rgba(0, 0, 0, 0.3);
+                inset 4px 4px 6px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
 .bottonemenu2.active {
     animation: burn 2s infinite;
 }
 
-.bottonemusica {
+.bottonemusica{
     color: rgba(255, 196, 0, 0.397);
     background: radial-gradient(circle,  rgba(255, 102, 0, 0.383) 0%, #57000017 70%);
     border-radius: 100%;
 }
-
+.bottonemusica.btn:focus{
+    color: rgba(255, 196, 0, 0.397);
+    background: radial-gradient(circle,  rgba(255, 102, 0, 0.383) 0%, #57000017 70%);
+    border-radius: 100%;
+    box-shadow: none;
+}
 .bottonemusica:hover {
     color: rgb(255, 213, 73);
     background: radial-gradient(circle,  rgba(255, 166, 0, 0.383) 0%, #57000017 70%);
     border-radius: 100%;
 }
-.btnlove{
-
+.btnlove , .btnlove.btn:focus{
+    box-shadow: none;
     color: rgba(255, 196, 0, 0.397);
     background: radial-gradient(circle,  rgba(255, 102, 0, 0.383) 0%, #57000017 70%);
     border-radius: 100%;
 }
+
 .btnlove:hover{
     color: rgb(255, 213, 73);
     background: radial-gradient(circle,  rgba(255, 166, 0, 0.383) 0%, #57000017 70%);
     border-radius: 100%;
 }
-.btnlove:active{
-    animation: burn 2s infinite;
+.burn{
+    animation: burn 2s;
 }
 
 .scroll-y{
@@ -220,6 +240,10 @@ background: rgba(88, 21, 21, 0.267);
     color: darkorange;
 
 }
+
+.searchdesign.form-control:focus{
+    box-shadow: none;
+}
 .searchdesign::placeholder{
     color: rgba(210, 105, 30, 0.342);
 }
@@ -229,6 +253,10 @@ background: rgba(88, 21, 21, 0.267);
     border: none;
 }
 
+/* ----------------CLASSI EXTRA------------------ */
+.h-90 {
+    height: 90%;
+}
 
 /* -----ANIMAZIONI------ */
 

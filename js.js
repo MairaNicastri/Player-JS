@@ -75,7 +75,9 @@ const totalTime = document.querySelector('#totalTime');
 const progressTimeBar = document.querySelector('#progressTimeBar');
 // COSTANTE PER AREA RICERCA
 const SearchArea = document.querySelector('#SearchArea');
-const listarisultati = document.querySelector('#listarisultati')
+const listarisultati = document.querySelector('#listarisultati');
+
+let FavouriteSong = new Set();
 // ----------------------------------FUNZIONI----------------------------------
 
 
@@ -98,7 +100,7 @@ function SongList(){
         songListWrapper.appendChild(lista)
     })
 };
-console.log(SongList())
+SongList()
 
 
 // FUNZIONE CHE IMPOSTA TUTTI I DETTAGLI IN BASE ALLA TRACCIA
@@ -113,7 +115,7 @@ function ChangeTrackDetails(){
 
 
 };
-console.log(ChangeTrackDetails())
+ChangeTrackDetails()
 
 // FUNZIONE PER ANDARE AVANTI E INDIETRO CON LA TRACCIA
 function nexttrack (){
@@ -133,31 +135,48 @@ ChangeTrackDetails()
 
 // FUNZIONE AGGIUNGERE AI PREFERITI E CREARE NUOVO ARRAY CON PREFERITI
 function addsong() {
-    let FavouriteSong = [];
-    FavouriteSong.push(tracks[currentTrack]);
-    return FavouriteSong
+    FavouriteSong.add(currentTrack);  
+    favouritesong() 
 };
-console.log(addsong())
+
 
 function favouritesong(){
-    addsong().forEach(track => {
+    songloved.innerHTML= ''
+    FavouriteSong.forEach(songindex => {
+        let track = tracks[songindex]
         let listalove = document.createElement('div');
-
+        console.log(songindex)
         listalove.classList.add('col-12');
 
         listalove.innerHTML =
         `
         <div class="listadesign d-flex justify-content-between align-items-center">
             <h3 class="titolocolor">${track.artist} - ${track.title} </h3>
-            <button class="btn bottonemenu">
-            <i class="fas fa-heart-broken"></i>
+            <button tracki="${songindex}" class="hate btn bottonemenu">
+            <i  class="fas fa-heart-broken"></i>
         </button>
         </div>
         `
+        
         songloved.appendChild(listalove)
     })
+
+
+     let hates = document.querySelectorAll ('.hate');
+     hates.forEach(hate=>{
+         
+         hate.addEventListener('click' , ()=>{
+             console.log (hate.getAttribute('tracki'));
+
+            FavouriteSong.delete(Number(hate.getAttribute('tracki')));
+            favouritesong()
+
+         })
+         
+     })
+
 };
-console.log(favouritesong())
+
 
 
 // FUNZIONE CONVERTITORE MINUTI SECONDI
@@ -224,8 +243,11 @@ prevTrack.addEventListener('click', () =>{
 // TASTO AGGIUNTA PREFERITI E STAMPA LA LISTA
 loved.addEventListener('click' , () =>{
     
-    favouritesong()
     addsong()
+    loved.classList.add('burn')
+    setTimeout(()=>{
+        loved.classList.remove('burn')
+    } , 2000 )
 });
 // EVENTO PER FAR PARTIRE ALTRA TRACCIA QUANDO L'ATTUALE TERMINA
 Track.addEventListener('ended', ()=>{
@@ -255,6 +277,7 @@ Track.addEventListener('loadeddata', () => {
 });
 
 SearchArea.addEventListener('input' , () =>{
+    listarisultati.innerHTML= ''
     if (searchsongs(SearchArea.value) == ''){
         let lista2 = document.createElement('div');
 
